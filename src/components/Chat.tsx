@@ -84,7 +84,7 @@ export const Chat = () => {
       switch (lastFunctionCall.name) {
         case "playMusic":
           if (lastFunctionCall.args?.group) {
-            setCurrentSong(lastFunctionCall.args.group)
+            setCurrentSong(lastFunctionCall.args.group);
           }
       }
     }
