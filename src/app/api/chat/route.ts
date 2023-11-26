@@ -9,7 +9,6 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: Request) {
-  console.log("Request received");
   const { messages }: { messages: Array<ChatCompletionMessageParam> } = await req.json();
 
   const lastUserMessage = messages[messages.length - 1];
@@ -31,6 +30,7 @@ export async function POST(req: Request) {
     temperature: 0.4,
     functions: functions,
     messages: [systemPrompt, lastUserMessage],
+    max_tokens: 300,
   });
 
   const streamMetadata = new experimental_StreamData();

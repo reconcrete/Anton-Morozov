@@ -50,7 +50,7 @@ export const Introduction = () => {
         where you can find all the information about me and my work.
       </p>
 
-      <div className="mt-5 flex gap-x-2 lg:gap-x-5">
+      <div className="mt-5 flex gap-x-8">
         {socials.map(({ href, iconSvg }, i) => (
           <a key={i} href={href} target="_blank" className="lg:scale-150">
             {iconSvg}

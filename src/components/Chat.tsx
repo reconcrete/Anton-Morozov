@@ -10,7 +10,7 @@ let prevMetadataLength = 0;
 
 export const Chat = () => {
   const [isAnswerScreen, setIsAnswerScreen] = useState(true);
-  const { messages, input, data, setInput, isLoading, append } = useChat({
+  const { messages, input, data, setInput, append, setMessages } = useChat({
     initialMessages: [
       {
         id: String(Math.random()),
@@ -26,6 +26,7 @@ export const Chat = () => {
     const mainKeyListener = (e: KeyboardEvent) => {
       if (e.key === "Enter") {
         if (isAnswerScreen) {
+          setInput("");
           setIsAnswerScreen(false);
           return;
         }
@@ -37,6 +38,7 @@ export const Chat = () => {
           role: "user",
           content: input,
         });
+        setMessages([]);
         setInput("");
         setIsAnswerScreen(true);
       } else if (e.key === "Backspace") {
@@ -100,9 +102,7 @@ export const Chat = () => {
     .reverse()
     .find((message) => message.role === "assistant");
 
-  if (!lastAssistantMessage) return <>ERROR..</>;
-
-  if (isLoading) return <ChatWrapper>Loading...</ChatWrapper>;
+  if (!lastAssistantMessage) return <ChatWrapper>Loading...</ChatWrapper>;
 
   return isAnswerScreen ? (
     <>

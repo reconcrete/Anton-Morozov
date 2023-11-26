@@ -13,4 +13,5 @@ const DesktopOnlyWrapper: React.FC<DesktopOnlyProps> = ({ children }) => {
 
 export const DesktopOnly = dynamic(() => Promise.resolve(DesktopOnlyWrapper), {
   ssr: false,
+  loading: () => <div className="h-[500px] w-[478px]"></div>,
 });

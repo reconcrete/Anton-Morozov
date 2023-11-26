@@ -8,8 +8,6 @@ import { Chat } from "./Chat";
 const SPLINE_KEYBOARD_HEIGHT = 200;
 const SPLINE_KEYBOARD_WIDTH = 478;
 
-const WELCOME_TEXT = `Welcome to my website! If you have any questions, feel free to ask them right here. Just press Start and start typing!`;
-
 export const VirtualComputer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const onSplineLoad = () => {
@@ -44,3 +42,5 @@ export const VirtualComputer = () => {
     </div>
   );
 };
+
+export default VirtualComputer;

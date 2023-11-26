@@ -19,7 +19,7 @@ export const MusicPlayer = () => {
   if (!currentSong) return null;
 
   return (
-    <audio ref={audioRef} src={`/${currentSong}.mp3`}>
+    <audio ref={audioRef} src={`/music/${currentSong}.mp3`}>
       MusicPlayer
     </audio>
   );
