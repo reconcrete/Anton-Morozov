@@ -10,14 +10,14 @@ import { BackgroundShape } from "../components/BackgroundShape";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Anton Morozov",
   description: "Morozov Anton Portfolio",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={clsx(inter.className, "relative")}>
+      <body className={clsx(inter.className, "relative flex min-h-[100dvh] flex-col overflow-hidden")}>
         <Navigation />
         {children}
         <BackgroundShape />

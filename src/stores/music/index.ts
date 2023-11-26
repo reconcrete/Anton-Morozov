@@ -1,15 +1,23 @@
 import { create } from "zustand";
 
-type AllowedSongs = "coldplay" | "киш" | "rhcp";
+const allowedSongs = ["coldplay", "киш", "rhcp"];
 
 export type MusicState = {
-  currentSong?: AllowedSongs;
+  currentSong?: string;
 };
 
 type MusicAction = {
-  setCurrentSong: (currentSong: AllowedSongs | undefined) => void;
+  setCurrentSong: (currentSong: string | undefined) => void;
 };
 
 export const useMusic = create<MusicState & MusicAction>()((set) => ({
-  setCurrentSong: (currentSong) => set({ currentSong }),
+  setCurrentSong: (currentSong) => {
+    const lowerCaseCurrentSong = currentSong?.toLowerCase();
+
+    if (lowerCaseCurrentSong && allowedSongs.includes(lowerCaseCurrentSong)) {
+      set({ currentSong: lowerCaseCurrentSong });
+    } else {
+      set({ currentSong: undefined });
+    }
+  },
 }));

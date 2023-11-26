@@ -1,13 +1,17 @@
 import { VirtualComputer } from "@components/VirtualComputer";
 import { Introduction } from "@components/Introduction";
-import { MusicPlayer } from "../components/MusicPlayer";
+import { MusicPlayer } from "@components/MusicPlayer";
+import { DesktopOnly } from "@components/DesktopOnly";
 
 export default function Home() {
   return (
-    <main className="flex h-full items-center justify-around pb-32">
+    <main className="flex h-[calc(100dvh-83px)] items-center justify-around pb-32">
       <MusicPlayer />
       <Introduction />
-      <VirtualComputer />
+
+      <DesktopOnly>
+        <VirtualComputer />
+      </DesktopOnly>
     </main>
   );
 }

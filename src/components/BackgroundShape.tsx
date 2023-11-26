@@ -4,7 +4,7 @@ export const BackgroundShape = () => {
       <div
         style={{
           zIndex: -1,
-          position: "absolute",
+          position: "fixed",
           top: 0,
           left: 0,
           width: "100%",
@@ -16,7 +16,7 @@ export const BackgroundShape = () => {
       <div
         style={{
           zIndex: -2,
-          position: "absolute",
+          position: "fixed",
           top: "-227px",
           left: "-150px",
           width: "820px",
@@ -31,7 +31,7 @@ export const BackgroundShape = () => {
       <div
         style={{
           zIndex: -2,
-          position: "absolute",
+          position: "fixed",
           top: "68px",
           left: "168px",
           width: "394px",
