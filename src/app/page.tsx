@@ -1,17 +1,19 @@
-import { VirtualComputer } from "@components/VirtualComputer";
 import { Introduction } from "@components/Introduction";
 import { MusicPlayer } from "@components/MusicPlayer";
-import { DesktopOnly } from "@components/DesktopOnly";
+import dynamic from "next/dynamic";
 
 export default function Home() {
+  const VirtualComputer = dynamic(() => import("@components/VirtualComputer"), {
+    ssr: false,
+    loading: () => <div className="h-[500px] w-[478px]"></div>,
+  });
+
   return (
-    <main className="flex h-[calc(100dvh-83px)] items-center justify-around pb-32">
+    <main className="flex h-[calc(100dvh-90px)] items-center justify-around pb-32">
       <MusicPlayer />
       <Introduction />
 
-      <DesktopOnly>
-        <VirtualComputer />
-      </DesktopOnly>
+      <VirtualComputer />
     </main>
   );
 }

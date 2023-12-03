@@ -10,6 +10,9 @@ const SPLINE_KEYBOARD_WIDTH = 478;
 
 export const VirtualComputer = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  if (typeof screen === "undefined" || screen.width < 1024) return null;
+
   const onSplineLoad = () => {
     setTimeout(() => {
       setIsLoading(false);
