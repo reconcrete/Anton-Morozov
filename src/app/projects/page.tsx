@@ -5,7 +5,7 @@ import { projects } from "@/src/constants/index";
 import { ProjectDescription } from "@/src/components/ProjectDescription";
 import { ProjectCards } from "@/src/components/ProjectCards";
 
-export const Projects = () => {
+export default function Projects() {
   const [currentSelectedProject, setcurrentSelectedProject] = useState<(typeof projects)[number]>(projects[0]);
 
   return (
@@ -15,6 +15,4 @@ export const Projects = () => {
       <ProjectCards setCurrentSelectedProject={setcurrentSelectedProject} projects={projects} />
     </main>
   );
-};
-
-export default Projects;
+}
