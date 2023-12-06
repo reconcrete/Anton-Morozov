@@ -67,7 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, setCurrentSel
       <div className="pb-4">{project.iconSvg}</div>
       <p className="flex-1 text-center text-[16px]">{project.description}</p>
 
-      <p className="pb-3 text-center text-[14px] text-[#515151]">{project.technologies.join(", ")}</p>
+      <p className="pb-3 text-center text-[14px] text-white opacity-70">{project.technologies.join(", ")}</p>
 
       <div className="flex gap-x-5">
         {project.url && (
