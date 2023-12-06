@@ -9,7 +9,7 @@ export default function Home() {
   });
 
   return (
-    <main className="flex h-[calc(100dvh-90px)] items-center justify-around pb-32">
+    <main className="relative flex h-[calc(100dvh-90px)] items-center justify-around pb-32">
       <MusicPlayer />
       <Introduction />
 
