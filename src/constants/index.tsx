@@ -23,7 +23,7 @@ export const projects: Array<Project> = [
     ),
     description: "Twitter AI satirical clone",
     longDescription:
-      "Untwtr is a parody of Twitter populated by satirical AI personas. Visitors enter a news headline and AI personas respond just like real Twitter would— with complaints, off-color jokes, thoughts & prayers, and angry tirades.",
+      "A parody of Twitter populated by satirical AI personas. Visitors enter a news headline and AI personas respond just like real Twitter would— with complaints, off-color jokes, thoughts & prayers, and angry tirades.",
     url: "https://untwtr.vercel.app/",
     technologies: ["Next.js", "TypeScript", "React", "SCSS", "Zustand"],
     codeUrl: "https://github.com/Yoha485/untwtr",
@@ -46,7 +46,7 @@ export const projects: Array<Project> = [
     ),
     description: "Convienent way to embed AI agents",
     longDescription:
-      "Pickaxe is a platform for building and deploying AI agents. It is designed to be simple, fast, and convienent. It is built on top of OpenAI's GPT-3 and allows you to create agents that can perform a variety of tasks such as answering questions, generating text, and classifying text.",
+      "A platform for building and deploying AI agents. It is designed to be simple, fast, and convienent. It is built on top of OpenAI's GPT-3 and allows you to create agents that can perform a variety of tasks such as answering questions, generating text, and classifying text.",
     technologies: ["Next.js", "TypeScript", "SCSS", "Tailwind"],
     url: "https://beta.pickaxeproject.com/builder",
   },
@@ -75,7 +75,7 @@ export const projects: Array<Project> = [
     ),
     description: "A portfolio website for a designer",
     longDescription:
-      "This is a portfolio website for a designer built with React and TypeScript. It is a static site that is deployed on Netlify.",
+      "This is a portfolio website built with React and TypeScript. It is a static site that is deployed on Netlify.",
     technologies: ["React", "TypeScript", "Styled Components"],
     url: "https://alina-barannykova.netlify.app/",
     codeUrl: "https://github.com/Yoha485/Designer-Portfolio/tree/next",
@@ -93,8 +93,7 @@ export const projects: Array<Project> = [
       </svg>
     ),
     description: "It's that website. You are here!",
-    longDescription:
-      "This is my personal place. It is built simple with Next.js and Tailwind CSS. It is a static site where you can learn more about me and my work.",
+    longDescription: "This website is the central place where you can find all the information about me and my work.",
     technologies: ["Next.js", "Spline", "Tailwind", "OpenAI"],
     url: "/",
     codeUrl: "https://github.com/Yoha485/Anton-Morozov",
