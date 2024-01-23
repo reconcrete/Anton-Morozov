@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useMusic } from "@stores/music";
+import { useMusic } from "@/src/entities/music/model";
 
 export const MusicPlayer = () => {
   const currentSong = useMusic((state) => state.currentSong);

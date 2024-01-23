@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
 
-import { Chat } from "./Chat";
+import { Chat } from "../Chat/Chat";
 
 const SPLINE_KEYBOARD_HEIGHT = 200;
 const SPLINE_KEYBOARD_WIDTH = 478;

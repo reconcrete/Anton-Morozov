@@ -1,9 +1,9 @@
-import { Introduction } from "@components/Introduction";
-import { MusicPlayer } from "@components/MusicPlayer";
+import { Introduction } from "@widgets/introduction";
+import { MusicPlayer } from "@widgets/musicPlayer";
 import dynamic from "next/dynamic";
 
 export default function Home() {
-  const VirtualComputer = dynamic(() => import("@components/VirtualComputer"), {
+  const VirtualComputer = dynamic(() => import("@widgets/virtualComputer").then(res => res.VirtualComputer), {
     ssr: false,
     loading: () => <div className="h-[500px] w-[478px]"></div>,
   });

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useChat } from "ai/react";
 import { Press_Start_2P } from "next/font/google";
 import { useEffect, useState } from "react";
-import { useMusic } from "../stores/music";
+import { useMusic } from "@/src/entities/music/model";
 
 const geekyFont = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const WELCOME_TEXT = `Welcome to my website! If you have any questions, feel free to ask them right here. Just press the button and start typing!`;

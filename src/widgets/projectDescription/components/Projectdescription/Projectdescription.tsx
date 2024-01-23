@@ -1,9 +1,9 @@
-import { Project } from "@/src/constants/index";
+import { useProject } from "@/src/entities/projects";
 import { useRef } from "react";
 
-type ProjectDescriptionProps = { project: Project };
+export const ProjectDescription = () => {
+  const currentProject = useProject((state) => state.curentProject);
 
-export const ProjectDescription: React.FC<ProjectDescriptionProps> = ({ project }) => {
   const projectDescriptionRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -12,8 +12,8 @@ export const ProjectDescription: React.FC<ProjectDescriptionProps> = ({ project 
       ref={projectDescriptionRef}
       className="ml-auto hidden min-h-[30%] w-[60%] flex-1 gap-[50px] pt-[70px] transition-all duration-300 ease-in-out lg:flex"
     >
-      <h1 className="text-[34px] font-[600] -translate-y-3">{project.name}</h1>
-      <p>{project.longDescription}</p>{" "}
+      <h1 className="-translate-y-3 text-[34px] font-[600]">{currentProject.name}</h1>
+      <p>{currentProject.longDescription}</p>{" "}
     </div>
   );
 };

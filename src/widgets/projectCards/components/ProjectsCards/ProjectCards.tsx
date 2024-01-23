@@ -1,27 +1,23 @@
-import { Project } from "@/src/constants/index";
-import { ProjectCard } from "@components/ProjectCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { useProject } from "@/src/entities/projects";
+
+import { ProjectCard } from "../ProjectCard/ProjectCard";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-type ProjectCardsProps = {
-  projects: Project[];
-  setCurrentSelectedProject: (project: Project) => void;
-};
+export const ProjectCards = () => {
+  const projects = useProject((state) => state.projects);
+  const setCurrentProject = useProject((state) => state.setCurrentProject);
 
-export const ProjectCards: React.FC<ProjectCardsProps> = ({ projects, setCurrentSelectedProject }) => {
   return (
     <>
       {/* Desktop */}
       <div className="hidden h-full items-center justify-around lg:flex">
         {projects.map((project) => (
-          <ProjectCard
-            project={project}
-            key={project.id}
-            setCurrentSelectedProject={setCurrentSelectedProject}
-          ></ProjectCard>
+          <ProjectCard project={project} key={project.id} setCurrentSelectedProject={setCurrentProject}></ProjectCard>
         ))}
       </div>
 
@@ -32,11 +28,11 @@ export const ProjectCards: React.FC<ProjectCardsProps> = ({ projects, setCurrent
           loop
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          className="w-full h-full"
+          className="h-full w-full"
         >
           {projects.map((project) => (
-            <SwiperSlide key={project.id} className="p-8 w-full h-full">
-              <ProjectCard project={project} setCurrentSelectedProject={setCurrentSelectedProject}></ProjectCard>
+            <SwiperSlide key={project.id} className="h-full w-full p-8">
+              <ProjectCard project={project} setCurrentSelectedProject={setCurrentProject}></ProjectCard>
             </SwiperSlide>
           ))}
         </Swiper>
