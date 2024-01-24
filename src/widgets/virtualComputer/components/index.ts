@@ -1,1 +1,1 @@
-export * from './VirtualComputer/VirtualComputer';
+export { VirtualComputer as default } from './VirtualComputer/VirtualComputer';
