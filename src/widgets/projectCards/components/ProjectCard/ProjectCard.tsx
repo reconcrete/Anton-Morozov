@@ -1,14 +1,16 @@
-import { Project } from "@/src/constants/index";
+import { useProject } from "@/src/entities/projects";
+import { Project } from "@/src/entities/projects/types";
 import { useEffect, useRef } from "react";
 
-type ProjectCardProps = { project: Project; setCurrentSelectedProject: (project: Project) => void };
+type ProjectCardProps = { project: Project };
 
 const getRandomTilt = () => {
   const tilt = Math.floor(Math.random() * 5) + 1;
   return tilt % 2 === 0 ? tilt : tilt * -1;
 };
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, setCurrentSelectedProject }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const setCurrentSelectedProject = useProject((state) => state.setCurrentProject);
   const projectCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -45,5 +45,3 @@ export const VirtualComputer = () => {
     </div>
   );
 };
-
-export default VirtualComputer;

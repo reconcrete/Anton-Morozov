@@ -1,4 +1,4 @@
-import { useProject } from "@/src/entities/projects";
+import { useProject } from "@entities/projects";
 import { useRef } from "react";
 
 export const ProjectDescription = () => {

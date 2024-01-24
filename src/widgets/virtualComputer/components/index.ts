@@ -1,1 +1,1 @@
-export * from './Virtualcomputer/Virtualcomputer';
+export * from './VirtualComputer/VirtualComputer';

@@ -3,7 +3,7 @@ import { MusicPlayer } from "@widgets/musicPlayer";
 import dynamic from "next/dynamic";
 
 export default function Home() {
-  const VirtualComputer = dynamic(() => import("@widgets/virtualComputer").then(res => res.VirtualComputer), {
+  const VirtualComputer = dynamic(() => import("@widgets/virtualComputer"), {
     ssr: false,
     loading: () => <div className="h-[500px] w-[478px]"></div>,
   });

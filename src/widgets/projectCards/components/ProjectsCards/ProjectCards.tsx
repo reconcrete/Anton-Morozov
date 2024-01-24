@@ -17,7 +17,7 @@ export const ProjectCards = () => {
       {/* Desktop */}
       <div className="hidden h-full items-center justify-around lg:flex">
         {projects.map((project) => (
-          <ProjectCard project={project} key={project.id} setCurrentSelectedProject={setCurrentProject}></ProjectCard>
+          <ProjectCard project={project} key={project.id}></ProjectCard>
         ))}
       </div>
 
@@ -32,7 +32,7 @@ export const ProjectCards = () => {
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id} className="h-full w-full p-8">
-              <ProjectCard project={project} setCurrentSelectedProject={setCurrentProject}></ProjectCard>
+              <ProjectCard project={project}></ProjectCard>
             </SwiperSlide>
           ))}
         </Swiper>
