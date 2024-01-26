@@ -1,4 +1,6 @@
-export const functions = [
+import { OpenAiFunctionDeclaration } from "../types";
+
+export const functionDeclarations: Array<OpenAiFunctionDeclaration> = [
   {
     name: "playMusic",
     description: "This will play music of given group",
@@ -13,12 +15,18 @@ export const functions = [
       required: ["group"],
     },
   },
+  {
+    name: "stopMusic",
+    description: "Call this to stop playing music",
+    parameters: {
+      type: "object",
+      properties: {},
+      required: [],
+    },
+  },
 ];
 
-export function runFunction(
-  name: string,
-  args: Record<string, string>,
-): { name: string; args: Record<string, string>; text: string } {
+export function runFunction(name: string, args: Record<string, string>): AiCommand {
   try {
     switch (name) {
       case "playMusic":
@@ -32,6 +40,12 @@ export function runFunction(
           text: `Playing music of ${args.group}`,
         };
 
+      case "stopMusic":
+        return {
+          name,
+          args,
+          text: "Stopping music",
+        };
       default:
         return {
           name: "",

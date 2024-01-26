@@ -1,8 +1,10 @@
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse, experimental_StreamData } from "ai";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions.mjs";
+
+import { functionDeclarations, runFunction } from "./functions";
 import { systemPrompt } from "./constants";
-import { functions, runFunction } from "./functions";
+import { StreamMetadata } from "./util";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -24,28 +26,25 @@ export async function POST(req: Request) {
     return new StreamingTextResponse(stream);
   }
 
-  const response = await openai.chat.completions.create({
+  const openAiResponse = await openai.chat.completions.create({
     model: "gpt-3.5-turbo-1106",
     stream: true,
     temperature: 0.4,
-    functions: functions,
+    functions: functionDeclarations,
     messages: [systemPrompt, lastUserMessage],
     max_tokens: 300,
   });
 
-  const streamMetadata = new experimental_StreamData();
+  const streamMetadata = new StreamMetadata<AiCommand>();
 
-  const stream = OpenAIStream(response, {
+  let functionResponse: AiCommand | undefined;
+  const stream = OpenAIStream(openAiResponse, {
     experimental_onFunctionCall: async ({ name, arguments: args }) => {
-      const functionResponse = runFunction(name, args as Record<string, string>);
-      streamMetadata.append({
-        name: functionResponse.name,
-        args: functionResponse.args,
-      });
-
+      functionResponse = runFunction(name, args as Record<string, string>);
       return functionResponse.text;
     },
     onFinal: () => {
+      streamMetadata.appendValue(functionResponse);
       streamMetadata.close();
     },
     experimental_streamData: true,

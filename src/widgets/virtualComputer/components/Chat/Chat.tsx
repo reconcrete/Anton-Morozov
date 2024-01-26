@@ -2,11 +2,12 @@ import clsx from "clsx";
 import { useChat } from "ai/react";
 import { Press_Start_2P } from "next/font/google";
 import { useEffect, useState } from "react";
-import { useMusic } from "@/src/entities/music/model";
+
+import { useMusic } from "@entities/music/model";
+import { isObjectEmpty } from "@shared/utils";
 
 const geekyFont = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 const WELCOME_TEXT = `Welcome to my website! If you have any questions, feel free to ask them right here. Just press the button and start typing!`;
-let prevMetadataLength = 0;
 
 export const Chat = () => {
   const [isAnswerScreen, setIsAnswerScreen] = useState(true);
@@ -78,16 +79,22 @@ export const Chat = () => {
   }, [input]);
 
   useEffect(() => {
-    if (data && data.length > prevMetadataLength) {
-      prevMetadataLength = data.length;
+    if (data) {
+      let lastCommand = data[data.length - 1] as AiCommands;
+      debugger;
+      if (isObjectEmpty(lastCommand)) return;
 
-      const lastFunctionCall = data[data.length - 1] as { name: string; args: Record<string, string> | undefined };
-
-      switch (lastFunctionCall.name) {
+      switch (lastCommand.name) {
         case "playMusic":
-          if (lastFunctionCall.args?.group) {
-            setCurrentSong(lastFunctionCall.args.group);
-          }
+          lastCommand = lastCommand as PlayMusicAiCommand;
+          setCurrentSong(lastCommand.args.group);
+          break;
+        case "stopMusic":
+          lastCommand = lastCommand as StopMusicAiCommand;
+          setCurrentSong(undefined);
+          break;
+        default:
+          break;
       }
     }
   }, [data]);
