@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useProject } from "@/src/entities/projects";
+import { useProject } from "@entities/projects";
 
 import { ProjectCard } from "../ProjectCard/ProjectCard";
 
@@ -10,7 +10,6 @@ import "swiper/css/free-mode";
 
 export const ProjectCards = () => {
   const projects = useProject((state) => state.projects);
-  const setCurrentProject = useProject((state) => state.setCurrentProject);
 
   return (
     <>
