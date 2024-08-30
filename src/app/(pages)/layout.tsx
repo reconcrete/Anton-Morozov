@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { Navigation } from "@widgets/navigation";
 
-import "./globals.css";
+import "../../../public/globals.css";
 import clsx from "clsx";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -74,4 +74,3 @@ const BackgroundShape = () => {
     </>
   );
 };
-
