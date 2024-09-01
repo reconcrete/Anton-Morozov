@@ -14,6 +14,13 @@ export const useGeneral = create<GeneralState & GeneralAction>()((set) => ({
   disableAppSound: false,
   appearence: "dark",
 
-  setDisableAppSound: (disableAppSound) => set({ disableAppSound }),
+  setDisableAppSound: (disableAppSound) => {
+    const audioElements = document.querySelectorAll("audio");
+    audioElements.forEach((audioElement) => {
+      audioElement.muted = disableAppSound;
+    });
+
+    set({ disableAppSound });
+  },
   setAppearence: (appearence) => set({ appearence }),
 }));

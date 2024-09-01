@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
   const lastUserMessage = messages[messages.length - 1];
 
-  if (process.env.VERCEL_ENV !== "preview" && process.env.VERCEL_ENV !== "production") {
+  if (process.env.NODE_ENV === 'development') {
     const response = `Hello, I am a bot. I am still in development. Please come back later.`;
     const stream = new ReadableStream({
       start(controller) {

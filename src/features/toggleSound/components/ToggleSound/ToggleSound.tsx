@@ -9,16 +9,17 @@ export const ToggleSound = () => {
     state.setDisableAppSound,
   ]);
 
-  const toggleSound = () => {
+  const toggleSound = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.blur();
     setDisableAppSound(!disableAppSound);
   };
 
   return disableAppSound ? (
-    <button onClick={toggleSound}>
+    <button onClick={(e) => toggleSound(e)}>
       <SoundOffIcon />
     </button>
   ) : (
-    <button onClick={toggleSound}>
+    <button onClick={(e) => toggleSound(e)}>
       <SoundOnIcon />
     </button>
   );

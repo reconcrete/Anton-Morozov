@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 
 import { ToggleSound } from "@features/toggleSound";
-import { SendEmail } from "@features/sendEmail";
+import { SwitchTheme } from "@/src/features/switchTheme";
 
 const navigationItems = [
   {
@@ -25,7 +27,7 @@ export const Navigation = () => {
       ))}
 
       <div className="ml-auto flex items-center gap-x-12">
-        <SendEmail />
+        <SwitchTheme />
         <ToggleSound />
       </div>
     </nav>

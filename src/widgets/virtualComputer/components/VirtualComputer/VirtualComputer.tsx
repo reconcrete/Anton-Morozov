@@ -3,13 +3,20 @@
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
 
+import { useGeneral } from "@/src/entities/general";
+
 import { Chat } from "../Chat/Chat";
+import clsx from "clsx";
 
 const SPLINE_KEYBOARD_HEIGHT = 200;
 const SPLINE_KEYBOARD_WIDTH = 478;
 
+const SCENE_URL_WITHOUT_SOUND = "https://prod.spline.design/AsO7lelOb1sRsqNJ/scene.splinecode";
+const SCENE_URL_WITH_SOUND = "https://prod.spline.design/w6IPQnB5xMSipyMm/scene.splinecode";
+
 export const VirtualComputer = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const disableAppSound = useGeneral((state) => state.disableAppSound);
 
   if (typeof screen === "undefined" || screen.width < 1024) return null;
 
@@ -33,14 +40,27 @@ export const VirtualComputer = () => {
         </div>
       </div>
 
+      {!disableAppSound && (
+        <Spline
+          className={clsx(disableAppSound && "hidden")}
+          style={{
+            width: `${SPLINE_KEYBOARD_WIDTH}px`,
+            maxWidth: `${SPLINE_KEYBOARD_WIDTH}px`,
+            maxHeight: `${SPLINE_KEYBOARD_HEIGHT}px`,
+          }}
+          onLoad={onSplineLoad}
+          scene={SCENE_URL_WITH_SOUND}
+        />
+      )}
       <Spline
+        className={clsx(!disableAppSound && "hidden")}
         style={{
           width: `${SPLINE_KEYBOARD_WIDTH}px`,
           maxWidth: `${SPLINE_KEYBOARD_WIDTH}px`,
           maxHeight: `${SPLINE_KEYBOARD_HEIGHT}px`,
         }}
         onLoad={onSplineLoad}
-        scene="https://prod.spline.design/w6IPQnB5xMSipyMm/scene.splinecode"
+        scene={SCENE_URL_WITHOUT_SOUND}
       />
     </div>
   );
