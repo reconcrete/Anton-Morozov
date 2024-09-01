@@ -115,7 +115,7 @@ export const Chat = () => {
     <>
       <ChatWrapper>{lastAssistantMessage.content}</ChatWrapper>
 
-      <button onClick={openUserScreen} className="mt-4 rounded-md bg-white px-2 py-1 text-black">
+      <button onClick={openUserScreen} className="mt-4 rounded-md bg-black dark:bg-white px-2 py-1 dark:text-black">
         {messages.length === 1 ? "Start" : "Ask more"}
       </button>
     </>
@@ -126,10 +126,10 @@ export const Chat = () => {
 
 function ChatWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <p className={clsx(geekyFont.className, "text-[12px]")}>
-      <span className="text-white">&gt; </span>
+    <p className={clsx(geekyFont.className, "text-[12px] text-black dark:text-white")}>
+      <span>&gt; </span>
       {children}
-      <span className="animate-pulse text-white">_</span>
+      <span className="animate-pulse ">_</span>
     </p>
   );
 }

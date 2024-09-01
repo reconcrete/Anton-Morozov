@@ -18,9 +18,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className={clsx(inter.className, "relative flex min-h-[100dvh] flex-col overflow-hidden")}>
-        <Navigation />
-        {children}
+      <body
+        className={clsx(
+          inter.className,
+          "relative flex min-h-[100dvh] flex-col overflow-hidden bg-white text-black dark:bg-[#1a1a1a] dark:text-white",
+        )}
+      >
+        <div className="z-[100]">
+          <Navigation />
+          {children}
+        </div>
+        
         <BackgroundShape />
       </body>
       {process.env.NODE_ENV !== "development" && <Analytics />}

@@ -2,17 +2,22 @@ import { create } from "zustand";
 
 export type GeneralState = {
   disableAppSound: boolean;
-  appearence: "light" | "dark";
+  isDarkMode: boolean;
 };
 
 type GeneralAction = {
   setDisableAppSound: (disableAppSound: boolean) => void;
-  setAppearence: (appearence: "light" | "dark") => void;
+  setIsDarkMode: (isDarkMode: boolean) => void;
 };
 
 export const useGeneral = create<GeneralState & GeneralAction>()((set) => ({
   disableAppSound: false,
-  appearence: "dark",
+  isDarkMode:
+    typeof window === "undefined"
+      ? true
+      : localStorage.getItem("darkMode") === null
+        ? matchMedia("(prefers-color-scheme: dark)").matches
+        : Boolean(Number(localStorage.getItem("darkMode"))),
 
   setDisableAppSound: (disableAppSound) => {
     const audioElements = document.querySelectorAll("audio");
@@ -22,5 +27,5 @@ export const useGeneral = create<GeneralState & GeneralAction>()((set) => ({
 
     set({ disableAppSound });
   },
-  setAppearence: (appearence) => set({ appearence }),
+  setIsDarkMode: (isDarkMode) => set({ isDarkMode }),
 }));
