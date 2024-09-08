@@ -22,7 +22,7 @@ export const VirtualComputer = () => {
   const onSplineLoad = () => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 100);
+    }, 300);
   };
 
   return (

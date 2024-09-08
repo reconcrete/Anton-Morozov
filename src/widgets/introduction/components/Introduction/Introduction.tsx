@@ -72,7 +72,7 @@ export const Introduction = () => {
 
       <p className="mt-4 max-w-[450px]">
         My name is Anton. I have a passion for programming, mathematics, and music. <br />
-        <br /> This website is the central place where you can find all the information about me and my <br /> work.
+        <br /> This website is the central hub where you can find all the information about me and my <br /> work.
       </p>
 
       <div className="mt-10 flex justify-between gap-2.5 md:justify-start">
@@ -81,7 +81,7 @@ export const Introduction = () => {
             key={i}
             href={href}
             target="_blank"
-            className="rounded-[15px] border-[1px] border-black dark:border-white px-10 py-3 md:px-12"
+            className="rounded-[15px] border-[1px] border-black px-10 py-3 md:px-12 dark:border-white"
           >
             {iconSvg}
           </a>

@@ -1,13 +1,14 @@
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Navigation } from "@widgets/navigation";
+import { BackgroundShape } from "@widgets/backgroundShape";
+
+import { ThemeProvider } from "next-themes";
 
 import "../../../public/globals.css";
-import clsx from "clsx";
-import { BackgroundShape } from "@/src/widgets/backgroundShape";
-import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={clsx(
           inter.className,
-          "relative flex min-h-[100dvh] flex-col overflow-hidden bg-white text-black dark:bg-[#1a1a1a] dark:text-white",
+          "relative flex min-h-[100dvh] flex-col overflow-hidden bg-[#F5F5F5] text-black dark:bg-[#1a1a1a] dark:text-white",
         )}
       >
-        <ThemeProvider attribute="class">
+        <ThemeProvider enableSystem={false} attribute="class">
           <div className="z-[100]">
             <Navigation />
             {children}
