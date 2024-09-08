@@ -14,9 +14,9 @@ export const useGeneral = create<GeneralState & GeneralAction>()((set) => ({
   disableAppSound: false,
   isDarkMode:
     typeof window === "undefined"
-      ? true
+      ? false
       : localStorage.getItem("darkMode") === null
-        ? matchMedia("(prefers-color-scheme: dark)").matches
+        ? false
         : Boolean(Number(localStorage.getItem("darkMode"))),
 
   setDisableAppSound: (disableAppSound) => {

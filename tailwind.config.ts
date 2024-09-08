@@ -8,7 +8,7 @@ const config: Config = {
     "./src/entities/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "selector",
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {

@@ -1,37 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@shared/icons";
-import { useGeneral } from "@/src/entities/general";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export const SwitchTheme: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
-  const [isDarkMode, setIsDarkMode] = useGeneral((state) => [state.isDarkMode, state.setIsDarkMode]);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.getElementsByTagName("html")[0].classList.add("dark");
-    } else {
-      document.getElementsByTagName("html")[0].classList.remove("dark");
-    }
-  }, [isDarkMode]);
+    setMounted(true);
+  }, []);
 
-  const handleThemeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.blur();
+  if (!mounted) {
+    return <MoonIcon className="h-8" />;
+  }
 
-    if (isDarkMode) {
-      document.getElementsByTagName("html")[0].classList.remove("dark");
-      localStorage.setItem("darkMode", "0");
-      setIsDarkMode(false);
-    } else {
-      document.getElementsByTagName("html")[0].classList.add("dark");
-      localStorage.setItem("darkMode", "1");
-      setIsDarkMode(true);
-    }
-  };
+  console.log("theme", theme);
 
-  return (
-    <button className="block" onClick={(e) => handleThemeClick(e)} title="Switch light or dark theme" {...props}>
-      {isDarkMode ? <SunIcon className="h-8" /> : <MoonIcon className="dark:text-dark-text h-8" />}
+  return theme === "dark" ? (
+    <button {...props} onClick={() => setTheme("light")}>
+      <SunIcon className="h-8" />
+    </button>
+  ) : (
+    <button {...props} onClick={() => setTheme("dark")}>
+      <MoonIcon className="h-8" />
     </button>
   );
 };
