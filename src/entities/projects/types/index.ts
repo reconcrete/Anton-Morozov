@@ -4,7 +4,6 @@ export type Project = {
   name: string;
   description: string;
   longDescription: string;
-  technologies: Array<string>;
   url: string;
   codeUrl?: string;
 };

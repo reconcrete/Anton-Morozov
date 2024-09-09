@@ -15,6 +15,10 @@ const navigationItems = [
     name: "Projects",
     href: "/projects",
   },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
 ];
 
 export const Navigation = () => {

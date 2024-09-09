@@ -16,7 +16,6 @@ export const projects: Array<Project> = [
     longDescription:
       "A parody of Twitter populated by satirical AI personas. Visitors enter a news headline and AI personas respond just like real Twitter would— with complaints, off-color jokes, thoughts & prayers, and angry tirades.",
     url: "https://untwtr.vercel.app/",
-    technologies: ["Next.js", "TypeScript", "React", "SCSS", "Zustand"],
     codeUrl: "https://github.com/Yoha485/untwtr",
   },
   {
@@ -38,42 +37,11 @@ export const projects: Array<Project> = [
     description: "Convienent way to embed AI agents",
     longDescription:
       "A platform for building and deploying AI agents. It is designed to be simple, fast, and convienent. It is built on top of OpenAI's GPT-3 and allows you to create agents that can perform a variety of tasks such as answering questions, generating text, and classifying text.",
-    technologies: ["Next.js", "TypeScript", "SCSS", "Tailwind"],
     url: "https://beta.pickaxeproject.com/builder",
   },
   {
     id: 3,
-    name: "Designer Portfolio" as const,
-    iconSvg: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="38" height="39" viewBox="0 0 38 39" fill="none">
-        <g clipPath="url(#clip0_1965_192)">
-          <path
-            d="M36.7316 19.6089C38.3476 32.904 21.425 39.8834 11.1736 37.8503C0.380281 35.7224 -1.81888 22.6778 4.20131 9.10406C11.3706 -6.91884 34.8065 3.74595 36.7316 19.6089Z"
-            fill="white"
-          />
-          <path
-            d="M31.6547 26.6158C31.5388 26.3908 29.7339 22.6739 25.8631 19.8922C26.1064 17.7054 25.7043 15.5422 24.8288 13.6828C23.5517 11.1503 21.3338 9.39716 18.3448 8.64653C12.4227 7.20056 7.42312 11.8535 7.21428 12.033C7.00544 12.2126 6.90625 12.4455 6.91669 12.7317C6.92713 13.0178 6.98926 13.2448 7.15895 13.4679C7.32863 13.691 7.54791 13.7976 7.81679 13.7878C8.08567 13.778 8.29868 13.7129 8.50752 13.5333C8.55921 13.4741 13.0398 9.35595 17.9856 10.6083C20.4306 11.2068 22.2037 12.575 23.193 14.6022C23.8326 15.897 24.0999 17.3201 24.0984 18.753C22.944 18.1074 21.6884 17.6374 20.3852 17.3411C17.3425 16.5924 14.6578 16.805 12.6003 17.969C10.7515 18.9535 9.46771 20.6625 9.05474 22.6262C8.86679 23.3782 8.84226 24.1814 8.97906 24.9788C9.11585 25.7762 9.35811 26.5125 9.75961 27.1856C10.6206 28.6443 12.0025 29.6255 13.796 30.0759C16.6753 30.7732 19.3991 30.158 21.6488 28.3565C23.4249 26.8588 24.7996 24.6881 25.4606 22.1421C27.2916 23.6228 28.8124 25.4586 29.9673 27.5944C30.0253 27.7069 30.0832 27.8194 30.195 27.93C30.3067 28.0405 30.4163 28.0938 30.526 28.1472C30.6356 28.2005 30.7969 28.1946 30.9045 28.1907C31.0121 28.1867 31.1713 28.1236 31.2768 28.0624C31.3822 28.0013 31.4856 27.8829 31.5911 27.8217C31.6944 27.7033 31.744 27.5869 31.7936 27.4704C31.8432 27.354 31.837 27.1823 31.8328 27.0678C31.7706 26.8408 31.7127 26.7283 31.6547 26.6158ZM14.2068 28.0549C11.3275 27.3576 10.4352 25.0403 10.8481 23.0766C11.447 20.3037 14.5383 17.9556 19.9185 19.3068C21.2775 19.6584 22.589 20.1836 23.8013 20.9418L23.8034 20.999C22.835 25.4475 19.2602 29.3034 14.2068 28.0549Z"
-            fill="#2C2C2C"
-            stroke="#2C2C2C"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_1965_192">
-            <rect width="36" height="37" fill="white" transform="translate(0.109375 1.74609) rotate(-2.09)" />
-          </clipPath>
-        </defs>
-      </svg>
-    ),
-    description: "A portfolio website for a designer",
-    longDescription:
-      "This is a portfolio website built with React and TypeScript. It is a static site that is deployed on Netlify.",
-    technologies: ["React", "TypeScript", "Styled Components"],
-    url: "https://alina-barannykova.netlify.app/",
-    codeUrl: "https://github.com/Yoha485/Designer-Portfolio/tree/next",
-  },
-  {
-    id: 4,
-    name: "My Website" as const,
+    name: "This Website" as const,
     iconSvg: (
       <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
         <circle cx="19.618" cy="19.5275" r="18.5" transform="rotate(1.1 19.618 19.5275)" fill="white" />
@@ -83,9 +51,8 @@ export const projects: Array<Project> = [
         />
       </svg>
     ),
-    description: "It's that website. You are here!",
+    description: "You already know what this is. Want to know how it was made? Check my the blog post",
     longDescription: "This website is the central place where you can find all the information about me and my work.",
-    technologies: ["Next.js", "Spline", "Tailwind", "OpenAI"],
     url: "/",
     codeUrl: "https://github.com/Yoha485/Anton-Morozov",
   },
