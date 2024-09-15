@@ -19,14 +19,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = (project) => {
       const randomTilt = getRandomTilt();
 
       mouseEnterEventListener = () => {
-        projectCardRef.current!.style.transform = `rotate(${randomTilt}deg) scale(1.02)`;
+        if (!projectCardRef.current) return;
+
+        projectCardRef.current.style.transform = `rotate(${randomTilt}deg) scale(1.02)`;
       };
 
       mouseLeaveEventListener = () => {
-        projectCardRef.current!.style.transform = `rotate(${randomTilt}deg)`;
+        if (!projectCardRef.current) return;
+
+        projectCardRef.current.style.transform = `rotate(${randomTilt}deg)`;
       };
 
       setTimeout(() => {
+        if (!projectCardRef.current) return;
+
         const rotationTransform = `rotate(${randomTilt}deg)`;
 
         projectCardRef.current!.style.transform = rotationTransform;
@@ -46,16 +52,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = (project) => {
   }, []);
 
   return (
-    <div className="flex rounded-lg border-2 border-gray-500 dark:border-gray-300 p-4 gap-4">
+    <div className="flex gap-4 rounded-lg border-2 border-gray-500 p-4 dark:border-gray-300">
       <div className="flex items-center justify-center ">
-        <div ref={projectCardRef} className="flex aspect-[3/4] w-[50px] items-center justify-center border-2 border-gray-500 dark:border-gray-300 rounded lg">
+        <div
+          ref={projectCardRef}
+          className="lg flex aspect-[3/4] w-[70px] items-center justify-center rounded border-2 border-gray-500 dark:border-gray-300"
+        >
           {project.iconSvg}
         </div>
       </div>
 
       <div className="w-full">
-        <h2>{project.name}</h2>
-        <p>{project.description}</p>
+        <h2 className="text-xl font-bold">{project.name}</h2>
+        <p className="text-base">{project.description}</p>
       </div>
     </div>
   );
