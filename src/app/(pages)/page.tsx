@@ -1,3 +1,4 @@
+import { BackgroundShape } from "@/src/widgets/backgroundShape";
 import { Introduction } from "@widgets/introduction";
 import { MusicPlayer } from "@widgets/musicPlayer";
 import dynamic from "next/dynamic";
@@ -14,6 +15,8 @@ export default function Home() {
       <Introduction />
 
       <VirtualComputer />
+
+      <BackgroundShape />
     </main>
   );
 }

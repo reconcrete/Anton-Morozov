@@ -31,8 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navigation />
             {children}
           </div>
-
-          <BackgroundShape />
         </ThemeProvider>
       </body>
       {process.env.NODE_ENV !== "development" && <Analytics />}

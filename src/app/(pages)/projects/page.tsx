@@ -1,5 +1,3 @@
-"use client";
-
 import { ProjectCard } from "@widgets/projectCard";
 import { projects } from "@entities/projects";
 
