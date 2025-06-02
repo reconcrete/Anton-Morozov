@@ -2,25 +2,28 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export type GeneralState = {
-  disableAppSound: boolean;
+  isSoundEnabled: boolean;
 };
 
 type GeneralAction = {
-  setDisableAppSound: (disableAppSound: boolean) => void;
+  toggleSound: () => void;
 };
 
 export const useGeneral = create<GeneralState & GeneralAction>()(
   persist(
-    (set) => ({
-      disableAppSound: false,
+    (set, get) => ({
+      isSoundEnabled: true,
 
-      setDisableAppSound: (disableAppSound) => {
+      toggleSound: () => {
+        const currentState = get().isSoundEnabled;
+        const newState = !currentState;
+        
         const audioElements = document.querySelectorAll("audio");
         audioElements.forEach((audioElement) => {
-          audioElement.muted = disableAppSound;
+          audioElement.muted = !newState;
         });
 
-        set({ disableAppSound });
+        set({ isSoundEnabled: newState });
       },
     }),
     {

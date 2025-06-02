@@ -1,6 +1,5 @@
 import { BackgroundShape } from "@/src/widgets/backgroundShape";
 import { Introduction } from "@widgets/introduction";
-import { MusicPlayer } from "@widgets/musicPlayer";
 import dynamic from "next/dynamic";
 
 export default function Home() {
@@ -11,11 +10,8 @@ export default function Home() {
 
   return (
     <main className="relative flex h-[calc(100dvh-90px)] items-center justify-around pb-32">
-      <MusicPlayer />
       <Introduction />
-
       <VirtualComputer />
-
       <BackgroundShape />
     </main>
   );

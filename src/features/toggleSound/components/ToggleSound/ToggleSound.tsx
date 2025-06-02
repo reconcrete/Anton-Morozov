@@ -1,14 +1,16 @@
 "use client";
 
-import { SoundOffIcon, SoundOnIcon } from "@shared/icons";
-import { useGeneral } from "@entities/general";
 import { useEffect, useState } from "react";
 
+import { SoundOffIcon, SoundOnIcon } from "@shared/icons";
+import { useGeneral } from "@entities/general";
+import { useMusic } from "@/src/entities/music";
+
 export const ToggleSound = () => {
-  const [disableAppSound, setDisableAppSound] = useGeneral((state) => [
-    state.disableAppSound,
-    state.setDisableAppSound,
-  ]);
+  const isSoundEnabled = useGeneral((state) => state.isSoundEnabled);
+  const toggleSound = useGeneral((state) => state.toggleSound);
+
+  const toggleCurrentSong = useMusic((state) => state.toggle);
 
   const [mounted, setMounted] = useState(false);
 
@@ -20,18 +22,15 @@ export const ToggleSound = () => {
     return <div className="h-8 w-3"></div>;
   }
 
-  const toggleSound = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.blur();
-    setDisableAppSound(!disableAppSound);
-  };
-
-  return disableAppSound ? (
-    <button onClick={(e) => toggleSound(e)}>
-      <SoundOffIcon />
-    </button>
-  ) : (
-    <button onClick={(e) => toggleSound(e)}>
-      <SoundOnIcon />
+  return (
+    <button
+      onClick={(e) => {
+        e.currentTarget.blur();
+        toggleSound();
+        toggleCurrentSong();
+      }}
+    >
+      {isSoundEnabled ? <SoundOffIcon /> : <SoundOnIcon />}
     </button>
   );
 };

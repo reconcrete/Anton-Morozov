@@ -22,6 +22,7 @@ export const Chat = () => {
   });
 
   const setCurrentSong = useMusic((state) => state.setCurrentSong);
+  const play = useMusic((state) => state.play);
 
   useEffect(() => {
     const mainKeyListener = (e: KeyboardEvent) => {
@@ -87,7 +88,10 @@ export const Chat = () => {
       switch (lastCommand.name) {
         case "playMusic":
           lastCommand = lastCommand as PlayMusicAiCommand;
+          
           setCurrentSong(lastCommand.args.group);
+          play();
+
           break;
         case "stopMusic":
           lastCommand = lastCommand as StopMusicAiCommand;

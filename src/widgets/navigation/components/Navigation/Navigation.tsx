@@ -26,7 +26,7 @@ export const Navigation = () => {
     <nav className="flex items-center gap-x-12 pt-[50px]">
       {navigationItems.map((item, index) => (
         <Link key={index} href={item.href}>
-          <p className="text-[18px]">{item.name}</p>
+          <p className="text-[18px] hover:underline">{item.name}</p>
         </Link>
       ))}
 

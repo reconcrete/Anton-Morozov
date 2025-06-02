@@ -15,16 +15,16 @@ export async function POST(req: Request) {
 
   const lastUserMessage = messages[messages.length - 1];
 
-  if (process.env.NODE_ENV === 'development') {
-    const response = `Hello, I am a bot. I am still in development. Please come back later.`;
-    const stream = new ReadableStream({
-      start(controller) {
-        controller.enqueue(response);
-        controller.close();
-      },
-    });
-    return new StreamingTextResponse(stream);
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   const response = `Hello, I am a bot. I am still in development. Please come back later.`;
+  //   const stream = new ReadableStream({
+  //     start(controller) {
+  //       controller.enqueue(response);
+  //       controller.close();
+  //     },
+  //   });
+  //   return new StreamingTextResponse(stream);
+  // }
 
   const openAiResponse = await openai.chat.completions.create({
     model: "gpt-3.5-turbo-1106",

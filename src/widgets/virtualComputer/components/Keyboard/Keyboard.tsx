@@ -1,22 +1,19 @@
 import { useGeneral } from "@/src/entities/general";
 import Spline from "@splinetool/react-spline";
 
-const KEYBOARD_HEIGHT = 200;
-const KEYBOARD_WIDTH = 478;
-
-const SCENE_URL_WITHOUT_SOUND = "https://prod.spline.design/AsO7lelOb1sRsqNJ/scene.splinecode";
-const SCENE_URL_WITH_SOUND = "https://prod.spline.design/w6IPQnB5xMSipyMm/scene.splinecode";
+import { SCENE_URL_WITH_SOUND, SCENE_URL_WITHOUT_SOUND } from "../../config";
+import { KEYBOARD_HEIGHT, KEYBOARD_WIDTH } from "../../constants";
 
 type KeyboardProps = {
   onKeyboardLoad: () => void;
 };
 
 export const Keyboard: React.FC<KeyboardProps> = ({ onKeyboardLoad }) => {
-  const disableAppSound = useGeneral((state) => state.disableAppSound);
+  const isSoundEnabled = useGeneral((state) => state.isSoundEnabled);
 
   return (
     <div className="relative">
-      {!disableAppSound && (
+      {!isSoundEnabled && (
         <Spline
           className="absolute"
           style={{
