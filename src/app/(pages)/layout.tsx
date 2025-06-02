@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Navigation } from "@widgets/navigation";
-import { BackgroundShape } from "@widgets/backgroundShape";
 
 import { ThemeProvider } from "next-themes";
 

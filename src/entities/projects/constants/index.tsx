@@ -34,26 +34,4 @@ export const projects: Array<Project> = [
     description: "Convienent way to embed AI agents",
     url: "https://beta.pickaxeproject.com/builder",
   },
-  {
-    id: 3,
-    name: "This Website" as const,
-    iconSvg: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
-        <circle
-          cx="19.618"
-          cy="19.5275"
-          r="18.5"
-          transform="rotate(1.1 19.618 19.5275)"
-          className="fill-black dark:fill-white"
-        />
-        <path
-          d="M19.8507 7.56949L21.3363 17.8789L31.5811 19.7592L21.2717 21.2448L19.3914 31.4896L17.9058 21.1802L7.66098 19.2999L17.9704 17.8143L19.8507 7.56949Z"
-          className="fill-white dark:fill-black"
-        />
-      </svg>
-    ),
-    description: "You already know what this is. Want to know how it was made? Check my the blog post",
-    url: "/",
-    codeUrl: "https://github.com/Yoha485/Anton-Morozov",
-  },
 ];

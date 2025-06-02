@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const allowedSongs = ["coldplay", "киш", "rhcp", "foals"];
 
-export type MusicState = {
+type MusicState = {
   currentSong?: string;
 };
 

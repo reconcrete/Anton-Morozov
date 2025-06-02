@@ -7,7 +7,7 @@ import { useMusic } from "@entities/music/model";
 import { isObjectEmpty } from "@shared/utils";
 
 const geekyFont = Press_Start_2P({ weight: "400", subsets: ["latin"] });
-const WELCOME_TEXT = `Welcome to my website! If you have any questions, feel free to ask them right here. Just press the button and start typing!`;
+const WELCOME_TEXT = `If you have any questions, feel free to ask them right here. Press Enter or the button and start typing`;
 
 export const Chat = () => {
   const [isAnswerScreen, setIsAnswerScreen] = useState(true);
@@ -115,7 +115,7 @@ export const Chat = () => {
     <>
       <ChatWrapper>{lastAssistantMessage.content}</ChatWrapper>
 
-      <button onClick={openUserScreen} className="mt-4 rounded-md bg-black dark:bg-white px-2 py-1 dark:text-black">
+      <button onClick={openUserScreen} className="mt-4 rounded-md bg-black px-2 py-1 dark:bg-white dark:text-black">
         {messages.length === 1 ? "Start" : "Ask more"}
       </button>
     </>
@@ -127,9 +127,7 @@ export const Chat = () => {
 function ChatWrapper({ children }: { children: React.ReactNode }) {
   return (
     <p className={clsx(geekyFont.className, "text-[12px] text-black dark:text-white")}>
-      <span>&gt; </span>
-      {children}
-      <span className="animate-pulse ">_</span>
+      <span>&gt; </span> {children} <span className="animate-pulse ">_</span>
     </p>
   );
 }
