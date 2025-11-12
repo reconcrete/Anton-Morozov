@@ -12,12 +12,11 @@ export const Introduction = () => {
       <h1
         className={clsx(
           magraFont.className,
-          "mb-[20px] -translate-x-0 text-[80px] leading-none lg:mb-0 lg:-translate-x-2 lg:text-[160px] select-none",
+          "mb-[20px] -translate-x-0 select-none text-[80px] leading-none lg:mb-0 lg:-translate-x-2 lg:text-[160px]",
         )}
       >
-        Hi{" "}
         <span className="relative">
-          There
+          Hey!
           <svg
             className="absolute -right-16 -top-2"
             xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +34,7 @@ export const Introduction = () => {
       </h1>
 
       <p className="mt-4 max-w-[450px]">
-        My name is Anton. I have a passion for programming, mathematics, and music. <br />
+        If you somehow ended up here, you probably know who I am :D <br />
         <br /> This website is the central hub where you can find all the information about me and my <br /> work.
       </p>
 
