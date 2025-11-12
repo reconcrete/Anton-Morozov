@@ -3,7 +3,7 @@ import { create } from "zustand";
 const allowedSongs = ["coldplay", "киш", "rhcp", "foals"];
 
 type MusicState = {
-  audio: HTMLAudioElement;
+  audio: HTMLAudioElement | null;
 };
 
 type MusicAction = {
@@ -13,28 +13,42 @@ type MusicAction = {
   toggle: () => void;
 };
 
+const createAudio = (src?: string): HTMLAudioElement | null => {
+  if (typeof window === "undefined") return null;
+  return src ? new Audio(src) : new Audio();
+};
+
 export const useMusic = create<MusicState & MusicAction>()((set, get) => ({
-  audio: new Audio(),
+  audio: createAudio(),
 
   setCurrentSong: (currentSong) => {
     const lowerCaseCurrentSong = currentSong?.toLowerCase();
 
     if (lowerCaseCurrentSong && allowedSongs.includes(lowerCaseCurrentSong)) {
-      set({ audio: new Audio(`/music/${lowerCaseCurrentSong}.mp3`) });
+      set({ audio: createAudio(`/music/${lowerCaseCurrentSong}.mp3`) });
     } else {
-      set({ audio: new Audio() });
+      set({ audio: createAudio() });
     }
   },
 
   play: () => {
-    get().audio.play();
+    const audio = get().audio;
+    if (audio) {
+      audio.play();
+    }
   },
 
   pause: () => {
-    get().audio.pause();
+    const audio = get().audio;
+    if (audio) {
+      audio.pause();
+    }
   },
 
   toggle: () => {
-    get().audio.paused ? get().play() : get().pause();
+    const audio = get().audio;
+    if (audio) {
+      audio.paused ? get().play() : get().pause();
+    }
   },
 }));

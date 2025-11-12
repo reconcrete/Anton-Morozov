@@ -1,6 +1,6 @@
 export const socials = [
   {
-    href: "https://www.linkedin.com/in/anton-morozov-0aba38226/",
+    href: "https://www.linkedin.com/in/anton-morozov-dev/",
     iconSvg: (
       <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
         <path
@@ -11,7 +11,7 @@ export const socials = [
     ),
   },
   {
-    href: "https://github.com/Yoha485",
+    href: "https://github.com/reconcrete",
     iconSvg: (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
         <path
@@ -21,9 +21,8 @@ export const socials = [
       </svg>
     ),
   },
-
   {
-    href: "https://t.me/wme_music",
+    href: "https://t.me/reconcrete",
     iconSvg: (
       <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19" fill="none">
         <path
