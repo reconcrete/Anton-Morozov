@@ -84,6 +84,6 @@ export const projects: Array<Project> = [
       </svg>
     ),
     description: "Convienent way to embed AI agents",
-    url: "https://beta.pickaxeproject.com/builder",
+    url: "https://pickaxe.co",
   },
 ];
