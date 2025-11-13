@@ -7,7 +7,7 @@ import { useMusic } from "@entities/music/model";
 import { isObjectEmpty } from "@shared/utils";
 
 const geekyFont = Press_Start_2P({ weight: "400", subsets: ["latin"] });
-const WELCOME_TEXT = `If you have any questions, feel free to ask them right here. Press Enter or the button and start typing`;
+const WELCOME_TEXT = `If you have any questions, feel free to ask them right here! Press Enter or click the button and start typing`;
 
 export const Chat = () => {
   const [isAnswerScreen, setIsAnswerScreen] = useState(true);
@@ -88,7 +88,7 @@ export const Chat = () => {
       switch (lastCommand.name) {
         case "playMusic":
           lastCommand = lastCommand as PlayMusicAiCommand;
-          
+
           setCurrentSong(lastCommand.args.group);
           play();
 
