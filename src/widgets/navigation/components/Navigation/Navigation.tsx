@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
 
 import { ToggleSound } from "@features/toggleSound";
 import { SwitchTheme } from "@/src/features/switchTheme";
@@ -15,10 +14,10 @@ const navigationItems = [
     name: "Projects",
     href: "/projects",
   },
-  {
-    name: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
 ];
 
 export const Navigation = () => {
