@@ -1,3 +1,5 @@
+"use client";
+
 import { BackgroundShape } from "@/src/widgets/backgroundShape";
 import { Introduction } from "@widgets/introduction";
 import dynamic from "next/dynamic";
